@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:login/screens/signup/screen_signup.dart';
-
-import '../screens/login/screen_login.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
   final Color textColor;
   final Color bgColor;
-  final Function press;
+  final  Function press;
 
   RoundedButton({
     required this.text,
@@ -26,11 +23,13 @@ class RoundedButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(30),
+
         ),
         child: TextButton(
-        onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenLogin()));
+        onPressed:(){
+          press();
         },
+            //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenSignUp())),
           child: Text(text, style: TextStyle(color: textColor),),
         )
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login/screens/login/screen_login.dart';
 import 'package:login/screens/signup/screen_signup.dart';
+import 'package:login/screens/welcome/screen_welcome.dart';
 
 class AlreadyHaveAccount extends StatelessWidget {
   final bool isAlreadyHave;
@@ -22,7 +23,9 @@ class AlreadyHaveAccount extends StatelessWidget {
         ),
         TextButton(
           onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenSignUp()));
+           isAlreadyHave?
+           Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenLogin()))
+               : Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenSignUp()));
           },
           child: Text(
             isAlreadyHave? 'Sign In':'Sign Up',
